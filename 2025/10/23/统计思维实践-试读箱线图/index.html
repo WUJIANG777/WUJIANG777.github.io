@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.lzjhjw-irealm.asia/2025/10/23/%E7%BB%9F%E8%AE%A1%E6%80%9D%E7%BB%B4%E5%AE%9E%E8%B7%B5-%E8%AF%95%E8%AF%BB%E7%AE%B1%E7%BA%BF%E5%9B%BE/%E7%AE%B1%E7%BA%BF%E5%9B%BE1.png">
 <meta property="article:published_time" content="2025-10-23T08:01:03.000Z">
-<meta property="article:modified_time" content="2025-10-23T08:04:29.299Z">
+<meta property="article:modified_time" content="2025-10-23T08:06:45.507Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="统计">
 <meta name="twitter:card" content="summary">
@@ -160,9 +160,9 @@
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/%E9%9A%8F%E6%84%9F/">
-                随感
-                <div class="category-count">2</div>
+            <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1/">
+                二次
+                <div class="category-count">5</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">
@@ -170,14 +170,9 @@
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1/">
-                二次
-                <div class="category-count">5</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E5%91%A8%E8%BE%B9/">
-                周边
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%9A%8F%E6%84%9F/">
+                随感
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%89%8B%E4%BD%9C/">
@@ -187,6 +182,11 @@
         
             <a class="category-link" href="/categories/%E8%BF%90%E5%8A%A8/">
                 运动
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%91%A8%E8%BE%B9/">
+                周边
                 <div class="category-count">1</div>
             </a>
         
@@ -342,14 +342,14 @@
 </li>
 <li><p>4.IQR（四分位距）：IQR &#x3D; Q3 - Q1（上四－下四），代表了中间50%数据的范围。</p>
 </li>
-<li><p>5.须（Whisker）：<br> · 上须：延伸到Q3＋1.5<em>IQR范围内的最大非异常值。（<em>注意！这里说的“上须延伸到的位置”是Q3＋1.5</em>IQR范围内的某个值，而不是Q3＋1.5</em>IQR这个值本身！）<br> · 下须：延伸到Q1－1.5*IQR范围内的最小非异常值。（*当然下须也是同理的。这个关键概念要厘清。）</p>
+<li><p>5.须（Whisker）：<br> · 上须：延伸到Q3＋1.5IQR范围内的最大非异常值。（：注意！这里说的“上须延伸到的位置”是Q3＋1.5IQR范围内的某个值，而不是Q3＋1.5IQR这个值本身！）<br> · 下须：延伸到Q1－1.5IQR范围内的最小非异常值。（当然下须也是同理的。这个关键概念要厘清。）</p>
 </li>
-<li><p>6.异常值（Outlier）：超出须线范围的数据点，通常以点、星号等单独标记。（＞Q3＋1.5<em>IQR或＜Q1-1.5</em>IQR的，就肯定不在箱和须线的范围内了。）</p>
+<li><p>6.异常值（Outlier）：超出须线范围的数据点，通常以点、星号等单独标记。（＞Q3＋1.5IQR或＜Q1-1.5IQR的，就肯定不在箱和须线的范围内了。）</p>
 </li>
 <li></li>
 <li><p>接下来思考一下可能导致题述此情况出现的原因：</p>
 </li>
-<li><p>· 上须短：（Q3,Q3+1.5<em>IQR）之内的“正常右偏”数据点非常少（<em>翻译：绝绝绝大部分右偏数据都是“极端右偏”，即都比Q3+1.5</em>IQR大很多），而在（Q3,Q3+1.5</em>IQR）范围内的最大非异常值xn是紧挨着Q3的。这时候上须就被截断在这个最大非异常值xn处，使得上须（上须长&#x3D;xn－Q3）看上去非常短。而那些异常值，用点或者星号标注到箱线图上，就只能在上须以上以上以上。</p>
+<li><p>· 上须短：（Q3,Q3+1.5IQR）之内的“正常右偏”数据点非常少（*翻译：绝绝绝大部分右偏数据都是“极端右偏”，即都比Q3+1.5IQR大很多），而在（Q3,Q3+1.5IQR）范围内的最大非异常值xn是紧挨着Q3的。这时候上须就被截断在这个最大非异常值xn处，使得上须（上须长&#x3D;xn－Q3）看上去非常短。而那些异常值，用点或者星号标注到箱线图上，就只能在上须以上以上以上。</p>
 </li>
 <li><p>· 上箱长：由上箱长&#x3D;Q3－Q2，下箱长&#x3D;Q2－Q1，得出：上箱更长可能是因为Q3本身离中位数比Q1离中位数更远，这也就表明，数据上半部分本身的离散程度就更大。</p>
 </li>
