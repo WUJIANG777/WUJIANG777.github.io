@@ -23,15 +23,18 @@
   <meta name="description" content="从开学第三周才开始着手做这个项目里数据库迁移的工作。 其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。 上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为学情分析的模块，并为其添加了一个可以为不同类型的代码题目进行自动的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite迁移MySQL数据库情况记录">
-<meta property="og:url" content="https://www.lzjhjw-irealm.asia/2026/03/16/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:url" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="lzjhjw_irealm">
 <meta property="og:description" content="从开学第三周才开始着手做这个项目里数据库迁移的工作。 其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。 上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为学情分析的模块，并为其添加了一个可以为不同类型的代码题目进行自动的">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2026-03-16T12:17:26.000Z">
-<meta property="article:modified_time" content="2026-03-16T14:53:33.087Z">
+<meta property="og:image" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/%E9%A6%96%E6%AC%A1%E6%88%90%E5%8A%9F%E8%8E%B7%E5%8F%96%E6%9C%80%E9%AB%98%E6%9D%83%E9%99%90.png">
+<meta property="article:published_time" content="2026-03-19T12:17:26.000Z">
+<meta property="article:modified_time" content="2026-03-19T10:54:48.514Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="网页开发">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F.png">
   
     <link rel="alternate" href="/atom.xml" title="lzjhjw_irealm" type="application/atom+xml">
   
@@ -160,7 +163,12 @@
       <div class="category-box">
             <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1/">
                 二次
-                <div class="category-count">40</div>
+                <div class="category-count">42</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">
+                技术
+                <div class="category-count">5</div>
             </a>
         
             <a class="category-link" href="/categories/%E4%B8%AA%E4%BA%BA%E5%88%9B%E4%BD%9C/">
@@ -168,9 +176,9 @@
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">
-                技术
-                <div class="category-count">5</div>
+            <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">
+                生活
+                <div class="category-count">31</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%9A%8F%E6%84%9F/">
@@ -181,11 +189,6 @@
             <a class="category-link" href="/categories/%E4%B8%AA%E4%BA%BA%E4%BA%8C%E5%88%9B/">
                 个人二创
                 <div class="category-count">4</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">
-                生活
-                <div class="category-count">31</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%89%8B%E4%BD%9C/">
@@ -203,14 +206,14 @@
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%87%AA%E7%84%B6/">
-                自然
-                <div class="category-count">11</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E4%B8%80%E6%AC%A1/">
                 一次
                 <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%87%AA%E7%84%B6/">
+                自然
+                <div class="category-count">11</div>
             </a>
         </div>
     </div>
@@ -236,7 +239,7 @@
       
         <a class="archive-link" href="/archives/2026/03 ">
           March 2026 
-          <div class="archive-count">17 </div>
+          <div class="archive-count">20 </div>
         </a>
       
         <a class="archive-link" href="/archives/2026/02 ">
@@ -295,33 +298,33 @@
       <h3 class="widget-title">Recent Posts</h3>
       <ul>
         
-          <a class="recent-link" href="/2026/03/18/%E5%B0%8F%E7%97%85%E7%BC%A0%E8%BA%AB%E7%9A%84%E6%98%A5%E5%A4%A9/" title="小病缠身的春天" >
-            <div class="recent-link-text">
-              小病缠身的春天
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2026/03/17/%E8%AE%B0%E6%A2%A6018/" title="记梦018" >
-            <div class="recent-link-text">
-              记梦018
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2026/03/17/%E8%A7%82%E9%B8%9F%E9%B8%9F%E9%B8%9Fvol-11/" title="观鸟鸟鸟vol.11" >
-            <div class="recent-link-text">
-              观鸟鸟鸟vol.11
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2026/03/16/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/" title="SQLite迁移MySQL数据库情况记录" >
+          <a class="recent-link" href="/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/" title="SQLite迁移MySQL数据库情况记录" >
             <div class="recent-link-text">
               SQLite迁移MySQL数据库情况记录
             </div>
           </a>
         
-          <a class="recent-link" href="/2026/03/15/%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E5%B7%A1%E8%88%AA%E8%88%B0%E6%97%A5%E5%B8%B8%E4%BB%BB%E5%8A%A1%E8%AE%B0%E5%BD%95%C2%B7%E5%85%B6%E4%B9%8B%E4%B8%89/" title="曲率驱动巡航舰日常任务记录·其之三" >
+          <a class="recent-link" href="/2026/03/19/%E5%BA%93%E6%B4%9B%E5%A7%86%E5%85%B6%E5%AE%9E%E6%88%91%E6%A0%B9%E6%9C%AC%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BD%A0%E8%BF%B7%E5%80%92%EF%BC%81/" title="库洛姆其实我根本没有被你迷倒！" >
             <div class="recent-link-text">
-              曲率驱动巡航舰日常任务记录·其之三
+              库洛姆其实我根本没有被你迷倒！
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/03/19/ICARUS/" title="ICARUS" >
+            <div class="recent-link-text">
+              ICARUS
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/03/19/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E7%B4%A0%E6%9D%90%E7%A7%AF%E7%B4%AF1-1-1/" title="独立游戏素材积累1.1.1" >
+            <div class="recent-link-text">
+              独立游戏素材积累1.1.1
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/03/18/%E5%B0%8F%E7%97%85%E7%BC%A0%E8%BA%AB%E7%9A%84%E6%98%A5%E5%A4%A9/" title="小病缠身的春天" >
+            <div class="recent-link-text">
+              小病缠身的春天
             </div>
           </a>
         
@@ -358,7 +361,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2026-03-16T12:17:26.000Z" itemprop="datePublished">2026-03-16</time>
+  <time class="dt-published" datetime="2026-03-19T12:17:26.000Z" itemprop="datePublished">2026-03-19</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -369,7 +372,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            970 words 
+            1.2k words 
           </div>
         </div>
         
@@ -395,7 +398,24 @@
 <li>3、在app.py开头，新增自定义函数get_db_connection()，用于新数据库连接。这一点中，有一些东西需要与组内成员继续商量，因为这个函数的定义中包括MySQL数据库地址、数据库用户的名称、密码、数据库名等。目前我只跟组长确认过数据库名（即仍然沿用原名称code_judge_platform），但其他的也需要后续沟通</li>
 <li>4、在app.py中，将每一个路由下的连接数据库sqlite3的函数，改为我新增的这个自定义函数</li>
 <li>5、全局：占位符由?改为%s（是SQLite和MySQL的格式差异）</li>
+<li>（不是全部的改动，所有详见.docx的说明）</li>
 </ul>
+<hr>
+<ul>
+<li>来附一些调试中的截图。</li>
+<li></li>
+<li>图1：03.18加上AI agent后首次成功搭建docker环境成功的控制面板截图。</li>
+</ul>
+<img src="/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/环境部署成功.png">
+
+<p>- </p>
+<ul>
+<li>图2：03.19首次成功在docker控制面板中获取最高权限的控制面板截图。</li>
+<li>我真的服了……原来控制面板里的ENTER PWD里是不会显示输入的，只能盲打然后回车看对不对……其实今天我第一次知道（）</li>
+<li>下次试试直接Ctrl+V粘贴然后回车，看能不能成功通过身份认证获取权限。</li>
+</ul>
+<img src="/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/首次成功获取最高权限.png">
+
 <hr>
 
         
@@ -409,27 +429,22 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2026/03/17/%E8%A7%82%E9%B8%9F%E9%B8%9F%E9%B8%9Fvol-11/"
-      title="观鸟鸟鸟vol.11"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        观鸟鸟鸟vol.11
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2026/03/15/%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E5%B7%A1%E8%88%AA%E8%88%B0%E6%97%A5%E5%B8%B8%E4%BB%BB%E5%8A%A1%E8%AE%B0%E5%BD%95%C2%B7%E5%85%B6%E4%B9%8B%E4%B8%89/"
-      title="曲率驱动巡航舰日常任务记录·其之三"
+      href="/2026/03/19/%E5%BA%93%E6%B4%9B%E5%A7%86%E5%85%B6%E5%AE%9E%E6%88%91%E6%A0%B9%E6%9C%AC%E6%B2%A1%E6%9C%89%E8%A2%AB%E4%BD%A0%E8%BF%B7%E5%80%92%EF%BC%81/"
+      title="库洛姆其实我根本没有被你迷倒！"
      >
 
     <p class="title-text">
       
-        曲率驱动巡航舰日常任务记录·其之三
+        库洛姆其实我根本没有被你迷倒！
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
