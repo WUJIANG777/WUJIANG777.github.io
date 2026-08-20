@@ -20,17 +20,17 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="从开学第三周才开始着手做这个项目里数据库迁移的工作。 其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。 上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为学情分析的模块，并为其添加了一个可以为不同类型的代码题目进行自动的">
+  <meta name="description" content="从开学第三周才开始着手做这个项目里数据库迁移的工作。 其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。 上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为学情分析的模块，并为其添加了一个可以为不同类型的代码题目进行自动的标">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite迁移MySQL数据库情况记录">
 <meta property="og:url" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="lzjhjw_irealm">
-<meta property="og:description" content="从开学第三周才开始着手做这个项目里数据库迁移的工作。 其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。 上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为学情分析的模块，并为其添加了一个可以为不同类型的代码题目进行自动的">
+<meta property="og:description" content="从开学第三周才开始着手做这个项目里数据库迁移的工作。 其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。 上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为学情分析的模块，并为其添加了一个可以为不同类型的代码题目进行自动的标">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F.webp">
 <meta property="og:image" content="https://www.lzjhjw-irealm.asia/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/%E8%BE%93%E5%87%BA%E8%A1%A8.webp">
 <meta property="article:published_time" content="2026-03-19T12:17:26.000Z">
-<meta property="article:modified_time" content="2026-05-13T09:48:13.582Z">
+<meta property="article:modified_time" content="2026-08-20T05:50:27.335Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="网页开发">
 <meta name="twitter:card" content="summary">
@@ -161,24 +161,19 @@
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">
-                生活
-                <div class="category-count">51</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/">
                 二次元
-                <div class="category-count">82</div>
+                <div class="category-count">83</div>
             </a>
         <div class="children"><div class="category-box">
-            <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/%E5%89%A7%E6%83%85%E5%88%86%E6%9E%90/">
-                剧情分析
-                <div class="category-count">4</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/%E5%AE%9E%E5%86%B5/">
                 实况
                 <div class="category-count">26</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/%E5%89%A7%E6%83%85%E5%88%86%E6%9E%90/">
+                剧情分析
+                <div class="category-count">4</div>
             </a>
         
             <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/%E4%B8%AA%E4%BA%BA%E5%88%9B%E4%BD%9C/">
@@ -213,7 +208,7 @@
         
             <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/">
                 独立游戏
-                <div class="category-count">25</div>
+                <div class="category-count">26</div>
             </a>
         
             <a class="category-link" href="/categories/%E4%BA%8C%E6%AC%A1%E5%85%83/cosplay/">
@@ -221,6 +216,11 @@
                 <div class="category-count">1</div>
             </a>
         </div></div>
+            <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">
+                生活
+                <div class="category-count">51</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">
                 技术
                 <div class="category-count">6</div>
@@ -231,14 +231,14 @@
                 <div class="category-count">9</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%96%87%E5%AD%A6/">
-                文学
-                <div class="category-count">2</div>
-            </a>
-        
             <a class="category-link" href="/categories/PVP/">
                 PVP
                 <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%96%87%E5%AD%A6/">
+                文学
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%9A%8F%E6%84%9F/">
@@ -279,7 +279,7 @@
       
         <a class="archive-link" href="/archives/2026/08 ">
           August 2026 
-          <div class="archive-count">29 </div>
+          <div class="archive-count">30 </div>
         </a>
       
         <a class="archive-link" href="/archives/2026/07 ">
@@ -363,6 +363,18 @@
       <h3 class="widget-title">Recent Posts</h3>
       <ul>
         
+          <a class="recent-link" href="/2026/08/20/%E7%9C%9F%E8%AF%9A%E4%B9%8B%E5%BF%83%C2%B7%E5%86%B7%E7%9F%A5%E8%AF%86%E9%97%AE%E7%AD%94vol-1/" title="真诚之心·冷知识问答vol.1" >
+            <div class="recent-link-text">
+              真诚之心·冷知识问答vol.1
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/08/20/%E4%BB%8A%E5%A4%A9%E4%BD%A0%E5%86%9C%E4%BA%86%E5%90%97/" title="今天你农了吗" >
+            <div class="recent-link-text">
+              今天你农了吗
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2026/08/19/%E9%87%8C%C2%B72026%E4%B8%83%E5%A4%95/" title="里·2026七夕" >
             <div class="recent-link-text">
               里·2026七夕
@@ -378,18 +390,6 @@
           <a class="recent-link" href="/2026/08/19/%E7%9C%9F%E8%AF%9A%E4%B9%8B%E5%BF%83%C2%B72026%E4%B8%83%E5%A4%95%E8%B4%BA%E5%9B%BE/" title="真诚之心·2026七夕贺图" >
             <div class="recent-link-text">
               真诚之心·2026七夕贺图
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2026/08/18/%E8%AE%B0%E6%A2%A6035/" title="记梦035" >
-            <div class="recent-link-text">
-              记梦035
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2026/08/17/%E8%A7%82%E9%B8%9F%E9%B8%9F%E9%B8%9Fvol-19/" title="观鸟鸟鸟vol.19" >
-            <div class="recent-link-text">
-              观鸟鸟鸟vol.19
             </div>
           </a>
         
@@ -446,29 +446,32 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <ul>
-<li>从开学第三周才开始着手做这个项目里数据库迁移的工作。</li>
-<li>其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。</li>
-<li>上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为<strong>学情分析</strong>的模块，并为其添加了一个可以为不同类型的代码题目进行自动的标签分类的AI工具。</li>
-<li>我看过app.py的代码之后，大概明白，他加的这个功能是为学生用户的知识点掌握情况绘制一幅较为精确的画像用的。</li>
-<li></li>
-<li>此外，他部署这个模块要用到的AI到本地时，在docker运行环境的总命令文件.yml里面写的CPU占核数量是16（他的华硕天选游戏本CPU是24核的，所以占用16核也还扛得动），但是我的电脑总共才16核，要是这个地方不改，我怕我电脑直接寄了，到时候没设备记笔记、看网课就彻底完了，所以我没敢保持原样，在代码里改了6核。</li>
-<li>问题就是，我改了6核之后，想在迁移数据库之前试搭一次我本机的docker环境。但是结果是：我在它搭建期间改了一晚上代码，到我准备睡了的时候，它都还没搭建完成。嗯对，其实他说过改6核速度肯定会变慢，但是具体会慢多少，大概就需要我自己后续改完了再实验了（因为如果这么慢的话，我大概只有改完全部的东西才会有耐心等它部署完成，不会继续在改代码中途尝试搭建了……）。</li>
-</ul>
+          <p>从开学第三周才开始着手做这个项目里数据库迁移的工作。</p>
+<p>其实是3月初校赛结束拿下一等奖之后要参加市赛，所以需要着手做一些更加创新性更加“高大上”的功能，并改进其运行性能。从SQLite迁移为MySQL的举动，就是出于答辩时评委老师提到的：应当优化多并发线程处理能力的考虑。</p>
+<p>上一棒在改的是我组长。他花了一两周时间在顶部索引栏加了个名为<strong>学情分析</strong>的模块，并为其添加了一个可以为不同类型的代码题目进行自动的标签分类的AI工具。</p>
+<p>我看过app.py的代码之后，大概明白，他加的这个功能是为学生用户的知识点掌握情况绘制一幅较为精确的画像用的。</p>
+<p>- </p>
+<p>此外，他部署这个模块要用到的AI到本地时，在docker运行环境的总命令文件.yml里面写的CPU占核数量是16（他的华硕天选游戏本CPU是24核的，所以占用16核也还扛得动），但是我的电脑总共才16核，要是这个地方不改，我怕我电脑直接寄了，到时候没设备记笔记、看网课就彻底完了，所以我没敢保持原样，在代码里改了6核。</p>
+<p>问题就是，我改了6核之后，想在迁移数据库之前试搭一次我本机的docker环境。但是结果是：我在它搭建期间改了一晚上代码，到我准备睡了的时候，它都还没搭建完成。嗯对，其实他说过改6核速度肯定会变慢，但是具体会慢多少，大概就需要我自己后续改完了再实验了（因为如果这么慢的话，我大概只有改完全部的东西才会有耐心等它部署完成，不会继续在改代码中途尝试搭建了……）。</p>
 <hr>
+<p>这边顺便码一下一些需要改动的方面。我按顺序来，做得会相对有条理一些。</p>
 <ul>
-<li>这边顺便码一下一些需要改动的方面。我按顺序来，做得会相对有条理一些。</li>
-<li>1、在requirements.txt中新增依赖：pymysql&#x3D;&#x3D;1.1.2</li>
-<li>2、在app.py中，将本来是用于引入sqlite3的代码改为引入pymysql</li>
-<li>3、在app.py开头，新增自定义函数get_db_connection()，用于新数据库连接。这一点中，有一些东西需要与组内成员继续商量，因为这个函数的定义中包括MySQL数据库地址、数据库用户的名称、密码、数据库名等。目前我只跟组长确认过数据库名（即仍然沿用原名称code_judge_platform），但其他的也需要后续沟通</li>
-<li>4、在app.py中，将每一个路由下的连接数据库sqlite3的函数，改为我新增的这个自定义函数</li>
-<li>5、全局：占位符由?改为%s（是SQLite和MySQL的格式差异）</li>
-<li>（不是全部的改动，所有详见.docx的说明）</li>
+<li><p>1、在requirements.txt中新增依赖：pymysql&#x3D;&#x3D;1.1.2</p>
+</li>
+<li><p>2、在app.py中，将本来是用于引入sqlite3的代码改为引入pymysql</p>
+</li>
+<li><p>3、在app.py开头，新增自定义函数get_db_connection()，用于新数据库连接。这一点中，有一些东西需要与组内成员继续商量，因为这个函数的定义中包括MySQL数据库地址、数据库用户的名称、密码、数据库名等。目前我只跟组长确认过数据库名（即仍然沿用原名称code_judge_platform），但其他的也需要后续沟通</p>
+</li>
+<li><p>4、在app.py中，将每一个路由下的连接数据库sqlite3的函数，改为我新增的这个自定义函数</p>
+</li>
+<li><p>5、全局：占位符由?改为%s（是SQLite和MySQL的格式差异）</p>
+</li>
 </ul>
+<p>（不是全局性的改动，详见.docx的说明）</p>
 <hr>
+<p>来附一些调试中的截图。</p>
+<p>- </p>
 <ul>
-<li>来附一些调试中的截图。</li>
-<li></li>
 <li>图1：03.18加上AI agent后首次成功搭建docker环境成功的控制面板截图。</li>
 </ul>
 <img src="/2026/03/19/SQLite%E8%BF%81%E7%A7%BBMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%83%85%E5%86%B5%E8%AE%B0%E5%BD%95/环境部署成功.webp">
