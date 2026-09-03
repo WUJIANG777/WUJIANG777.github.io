@@ -2998,3 +2998,6 @@ input[type="range"] {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.indent-paragraph p {
+  text-indent: 2em;
+}
